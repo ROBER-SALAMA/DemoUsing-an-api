@@ -107,8 +107,8 @@ i {
   border-radius: 20px;
 }
 
-tr td:nth-child(n+5),
-tr th:nth-child(n+5) {
+tr td:nth-child(n+3),
+tr th:nth-child(n+3) {
   border-radius: 0 .625rem .625rem 0;
 }
 
