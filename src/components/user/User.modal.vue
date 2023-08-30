@@ -5,7 +5,7 @@
                 class="py-3 px-10 bg-gray-800 text-white rounded text shadow-xl">Crear usuario</button>
         </section>
 
-        <dialog id="myModal" class=" bg-red-300 rounded-md w-[65%] h-[50%]">
+        <dialog id="myModal" class=" bg-red-300 rounded-md w-[65%] h-[80%]">
             <div class="flex flex-col w-full h-auto">
                 <!-- Header -->
                 <div class="flex w-full h-auto justify-center items-center">

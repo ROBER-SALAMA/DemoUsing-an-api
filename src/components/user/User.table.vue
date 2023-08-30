@@ -29,7 +29,7 @@
                                 class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline">
                                 Actualizar
                             </button>
-                            <dialog id="myModal2" class=" bg-red-300 rounded-md w-[65%] h-[50%]">
+                            <dialog id="myModal2" class=" bg-red-300 rounded-md w-[65%] h-[80%]">
                                 <div class="flex flex-col w-full h-auto">
                                     <!-- Header -->
                                     <div class="flex w-full h-auto justify-center items-center">
