@@ -1,7 +1,7 @@
 //! paso 2 los type
 export interface MakeLoginData {
     email: string;
-    passaword: string;
+    password: string;
 }
 
 export interface User {
@@ -11,6 +11,6 @@ export interface User {
 }
 
 export interface Response {
-    access_token?: string;
+    token?: string;
     user?: User;
 }

@@ -15,14 +15,14 @@ export const UseAuthStore = defineStore('auth', {
         token: '' as string
     }),
     actions: {
-        async make_login(data_send: MakeLoginData){
+        async MakeLogin(data_send: MakeLoginData){
             try {
                 const { data } = await make_login(data_send)
                 console.log(data);
-                if (data.access_token) {
+                if (data.token) {
                     router.push('/dashboard')
-                    this.token = data.access_token;
-                    AddToken(data.access_token);
+                    this.token = data.token;
+                    AddToken(data.token);
 
                     //? alert
                     Swal.fire({
@@ -42,7 +42,7 @@ export const UseAuthStore = defineStore('auth', {
                             title: 'Error',
                             text: 'Las credenciales de inicio de sesion son correctas',
                             showConfirmButton: false,
-                            timer: 20000,
+                            timer: 2000,
                         });
                     }
                 }else{
