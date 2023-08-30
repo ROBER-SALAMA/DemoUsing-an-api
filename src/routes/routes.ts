@@ -1,4 +1,4 @@
-import { createRouter, RouteRecordRaw, createWebHashHistory } from "vue-router";
+import { createRouter, RouteRecordRaw, createWebHistory } from "vue-router";
 import { IsAuth } from "../utils/persists";
 import Auth from "../views/Auth.vue";
 import Dashboard from "../views/Dashboard.vue"
@@ -31,7 +31,7 @@ const routes: RouteRecordRaw[] = [
 
 const router = createRouter({
     routes,
-    history: createWebHashHistory(),
+    history: createWebHistory(),
 })
 
 router.beforeEach((to, _, next) => {
