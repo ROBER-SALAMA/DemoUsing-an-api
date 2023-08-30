@@ -1,0 +1,52 @@
+import { createRouter, RouteRecordRaw, createWebHashHistory } from "vue-router";
+import { IsAuth } from "../utils/persists";
+import Auth from "../views/Auth.vue";
+import Dashboard from "../views/Dashboard.vue"
+import RolVue from "../views/Rol.vue";
+import UserVue from "../views/User.vue";
+
+
+const routes: RouteRecordRaw[] = [
+    {
+    name: "Auth",
+    path: "/auth",
+    component: Auth
+    },
+    {
+        name: "Dashboard",
+        path: "/dashboard",
+        component: Dashboard
+    },
+    {
+        name: "Rol",
+        path: "/rol",
+        component: RolVue
+    },
+    {
+        name: "User",
+        path: "/user",
+        component: UserVue
+    },
+]
+
+const router = createRouter({
+    routes,
+    history: createWebHashHistory(),
+})
+
+router.beforeEach((to, _, next) => {
+    const publicPages = ["/auth"];
+    const authRequired = !publicPages.includes(to.path);
+
+    if (!IsAuth() && to.path !== '/auth') {
+        return next("/auth");
+    }
+
+    if (authRequired && ! IsAuth()) {
+        return next("/auth")
+    }
+
+    next();
+})
+
+export { router }
