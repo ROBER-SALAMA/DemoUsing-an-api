@@ -1,6 +1,6 @@
 <template>
     
-        <body class="font-poppins antialiased z-0 relative bg-orange-400 h-full w-full">
+        <body class="font-poppins antialiased z-0 relative  h-full w-full">
             <div id="view" class="  flex flex-row ">
                 <div id="sidebar"
                     class="bg-white h-screen md:block shadow-xl px-3 w-30 md:w-60 lg:w-60 overflow-x-hidden transition-transform duration-300 ease-in-out"

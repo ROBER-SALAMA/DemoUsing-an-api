@@ -21,7 +21,7 @@ export const create_rol = async (rol:string) => {
 
 
 export const get_rol = async () => {
-    const { data } = await axios.get<{roles: GetRol[]}>(
+    const { data } = await axios.get<{rol: GetRol[]}>(
         API_URL + "/rol",
         {
             headers: {
@@ -35,7 +35,8 @@ export const get_rol = async () => {
 
 export const update_rol = async (id: number, rol:string) => {
     const { data } = await axios.put<{ok:boolean, msg:string}> (
-        API_URL + "/rol" + id, rol,
+        API_URL + "/rol/" + id,
+        {rol},
         {
             headers: {
                 Authorization: "Bearer" + GetToken(),

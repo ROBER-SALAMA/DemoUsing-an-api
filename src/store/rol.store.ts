@@ -20,23 +20,25 @@ export const UseRolStore = defineStore("rol", {
         async GetAllRol(){
             try {
                 const data = await get_rol();
-                this.rol = data.roles
+                this.rol = data.rol
             } catch (error) {
                 toast.error("Error")
             }
         },
 
         async CreateRol(rol:string) {
-            try {
+            try{
                 const data = await create_rol(rol)
 
                 if (data.ok) {
+                    await this.GetAllRol()
                     toast.success("Rol creado ")
+                    
                 }else{
                     toast.error("Error al crear rol")
                 }
-            } catch (error) {
-                toast.error("Error en el servidor")
+            }catch{
+                toast.error("Error")
             }
         },
 
@@ -51,10 +53,11 @@ export const UseRolStore = defineStore("rol", {
             }
         },
 
-        async UpdateRol(id:number, rol:string) {
+        async UpdateRol(id:number, rol:string ) {
             try {
-                const data = await update_rol(id, rol);
+                const data = await update_rol(id,rol);
                 if (data.ok) {
+                    await this.GetAllRol();
                     toast.info("ROl actualizado")
                 }else{
                     toast.error("Error al actualizar rol")

@@ -62,8 +62,7 @@
                                                     class="mt-1 p-2 block w-full rounded-md bg-white border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                                 <input type="text" id="rolName" name="rolName" placeholder="Correo"
                                                     class="mt-1 p-2 block w-full rounded-md bg-white border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                                                <input type="text" id="rolName" name="rolName" placeholder="Contraseña"
-                                                    class="mt-1 p-2 block w-full rounded-md bg-white border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                                
                                                 <input type="text" id="rolName" name="rolName" placeholder="Usuario activo"
                                                     class="mt-1 p-2 block w-full rounded-md bg-white border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                             </div>
