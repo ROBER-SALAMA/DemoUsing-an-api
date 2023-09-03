@@ -48,7 +48,7 @@ export const update_rol = async (id: number, rol:string) => {
 
 export const delete_rol = async (id:number) => {
     const { data } = await axios.delete<{ok:boolean, msg:string}> (
-        API_URL + "/rol" + id,
+        API_URL + "/rol/" + id,
         {
             headers: {
                 Authorization: "Bearer" + GetToken()

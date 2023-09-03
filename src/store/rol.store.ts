@@ -46,6 +46,7 @@ export const UseRolStore = defineStore("rol", {
             try {
                 const data = await delete_rol(id);
                 if (data.ok) {
+                    await this.GetAllRol();
                     toast.success("Rol eliminado")
                 }
             } catch  {

@@ -1,5 +1,5 @@
 <template>
-  <div class="z-40 absolute w-[81.5%] h-[calc(100% - 20%)]  left-[18.5%] top-[10%] flex  justify-center" >
+  <div class="z-40 absolute w-[81.5%] h-[calc(100% - 20%)]  left-[18.5%] top-[10%] flex  justify-center bg-red-400" >
     <button @click="showModal = true" class="flex items-center text-white font-semibold py-2 px-4 rounded-full shadow-md"
       :style="{
         backgroundColor: isAddHovered ? 'rgb(21, 131, 89)' : 'rgb(28, 161, 110)'

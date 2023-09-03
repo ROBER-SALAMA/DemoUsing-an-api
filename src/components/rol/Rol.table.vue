@@ -31,9 +31,8 @@
               <div class="flex justify-center space-x-4">
                 <update :rol="roles.rol" :id="roles.id">
                   </update>
-                <deleterol data-swal-template="#my-template" type="button" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Cancelar
-                  
-                </deleterol>
+                <button @click="handleDelete(roles.id)" data-swal-template="#my-template" type="button" class="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600">Eliminar
+                  </button>
               </div>
             </td>
           </tr>
@@ -50,7 +49,7 @@ import { storeToRefs } from 'pinia';
 // import agregar from '../../components/rol/Rol.modal.vue'
 import create from '../../components/rol/Rol.modal.vue'
 import update from '../../components/rol/Update.rol.vue'
-import deleterol from '../../components/rol/Delete.rol.vue'
+ import Swal from 'sweetalert2';
 
 
 //? pagination
@@ -63,6 +62,34 @@ onMounted(async () => {
   await GetAllRol()
 });
 
+// delete rol
+const { DeleteRol } = UseRolStore();
+
+// delete rol
+const handleDelete = (id: number) =>{
+  Swal.fire({
+    title: "Estas seguro?",
+    text: "Esta accion no se puede deshacer",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#3085d6",
+    confirmButtonText: "Eliminar",
+    cancelButtonText: "Cancelar"
+  }).then((result) => {
+    if (result.isConfirmed){
+      DeleteRol(id).then(() => {
+        Swal.fire({
+          title: "Rol eliminado",
+          text: "Rol eliminado con exito",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 2000
+        });
+      });
+    }
+  });
+}
 </script>
 
 <style lang="scss" scoped>
