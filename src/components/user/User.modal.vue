@@ -2,7 +2,7 @@
     <div class="w-[81.5%] h-[18%] left-[18.5%] z-20 absolute bg-orange-400">
         <section class="flex p-10 justify-center items-start ">
             <button onclick="document.getElementById('myModal').showModal()" id="btn"
-                class="py-3 px-10 bg-gray-800 text-white rounded text shadow-xl">Crear usuario</button>
+                class="py-3 px-10 bg-gray-800 text-white rounded text shadow-xl">Agregar</button>
         </section>
 
         <dialog id="myModal" class=" bg-red-300 rounded-md w-[65%] h-[80%]">
@@ -39,15 +39,16 @@
                                 class="mt-1 p-2 block w-full rounded-md bg-white border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             <input type="text" id="rolName" name="rolName" placeholder="Contraseña"
                                 class="mt-1 p-2 block w-full rounded-md bg-white border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            <input type="text" id="rolName" name="rolName" placeholder="Usuario activo"
+                            <input type="text" id="rolName" name="rolName" placeholder="Rol"
                                 class="mt-1 p-2 block w-full rounded-md bg-white border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                         </div>
                         <!-- Botones -->
                         <div class="flex justify-center space-x-4">
-                            <button type="submit"
-                                class="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600">Crear
-                                Usuario</button>
-                            <button type="button"
+                            <button 
+                                type="submit"
+                                class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Crear usuario</button>
+                            <button 
+                                type="submit"
                                 class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Cancelar</button>
                         </div>
                     </form>
