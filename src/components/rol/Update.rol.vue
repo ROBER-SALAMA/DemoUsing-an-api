@@ -7,10 +7,13 @@
         <oh-vue-icon name="io-add-circle" class="m-1"></oh-vue-icon>
         <span>Actualizar</span>
       </button>
+
       <div v-show="showModal" class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
         <div class="bg-white rounded-lg shadow-lg p-6">
           <h3 class="text-lg font-medium mb-4 text-center">Actualizar</h3>
+
           <form @submit="onSubmit">
+
             <div class="mb-4">
               <label for="rol" class="block text-gray-700 text-sm font-medium mb-1">Rol</label>
               <Field v-model="form.rol" name="rol" as="input" type="text" class="w-full h-10 p-4 border rounded-xl"
@@ -19,6 +22,7 @@
                 <p class="font-semibold text-red-600 text-sm">{{ message }}</p>
               </ErrorMessage>
             </div>
+
             <div class="flex justify-end">
               <button  type="submit" class="px-4 py-2 text-white text-sm font-medium rounded-md" :style="{
                 backgroundColor: isSaveHovered ? 'rgb(21, 131, 89)' : 'rgb(28, 161, 110)'
@@ -32,6 +36,7 @@
                 Cancelar
               </button>
             </div>
+            
           </form>
         </div>
       </div>

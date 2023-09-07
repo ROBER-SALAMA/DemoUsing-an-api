@@ -15,21 +15,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="users in user" class="bg-gray-800" >
+                    <tr v-for="users in user" class="bg-gray-800">
                         <td class="p-3">{{ users.name }}</td>
                         <td class="p-3">{{ users.lastName }}</td>
                         <td class="p-3">{{ users.age }}</td>
-                        <td class="p-3">{{users.gender  }}</td>
+                        <td class="p-3">{{ users.gender }}</td>
                         <td class="p-3">{{ users.email }}</td>
-                        <td class="p-3">{{ users.rol }}</td>
+                        <td class="p-3">{{ users.rol.rol }}</td>
                         <td class="p-3 text-green-500">Sí</td>
                         <td class="p-3">
                             <!-- modal -->
-                            <updateuser></updateuser>
-                            <button type="button"
-                                class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">
-                                Eliminar
-                            </button>
+                            <div class="flex justify-center space-x-4">
+                                <update :user="users"></update>
+                                <button @click="handleDelete(users.id)" data-swal-template="#my-template" type="button" class="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600">Eliminar
+                                </button>
+                            </div>
                         </td>
                     </tr>
                     <!--gregar mas filas-->
@@ -40,9 +40,10 @@
 </template>
 
 <script lang="ts" setup>
-import updateuser from '../../components/user/Update.user.vue'
+import update from '../../components/user/Update.user.vue'
 import { onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
+import Swal from 'sweetalert2';
 
 // pagination
 import { UseUserStore } from '../../store/user.store';
@@ -53,6 +54,35 @@ const { user } = storeToRefs(UseUserStore())
 onMounted(async () => {
     await GetAllUser()
 });
+
+// delete
+const { DeleteUser } = UseUserStore();
+
+// delete
+const handleDelete = (id: number) =>{
+  Swal.fire({
+    title: "Estas seguro?",
+    text: "Esta accion no se puede deshacer",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#3085d6",
+    confirmButtonText: "Eliminar",
+    cancelButtonText: "Cancelar"
+  }).then((result) => {
+    if (result.isConfirmed){
+        DeleteUser(id).then(() => {
+        Swal.fire({
+          title: "Usuario eliminado",
+          text: "Usuario eliminado con exito",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 2000
+        });
+      });
+    }
+  });
+}
 
 </script>
 
@@ -78,6 +108,4 @@ tr td:nth-child(1),
 tr th:nth-child(1) {
     border-radius: .625rem 0 0 .625rem;
 }
-
-
 </style>
