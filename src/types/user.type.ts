@@ -29,11 +29,10 @@ export interface CreateUser{
 
 export interface UpdateUser{
     id: number
-    lastName: number
+    name: string
+    lastName: string
     age: number
     email: string
-    isActive: boolean
     rolId: number
-    password: string
     gender: string
 }

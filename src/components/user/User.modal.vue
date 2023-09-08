@@ -56,12 +56,14 @@
                         </div>
                         <!-- Botones -->
                         <div class="flex justify-center space-x-4">
-                            <button type="submit" class="px-4 py-2 text-white text-sm font-medium rounded-md" :style="{
+                            <button onclick="document.getElementById('myModal').close();"
+                                type="submit" class="px-4 py-2 text-white text-sm font-medium rounded-md" :style="{
                                 backgroundColor: isSaveHovered ? 'rgb(21, 131, 89)' : 'rgb(28, 161, 110)'
                             }" @mouseover="isSaveHovered = true" @mouseleave="isSaveHovered = false">
                                 Guardar
                             </button>
-                            <button type="button" @click="cancelarModal"
+                            <button onclick="document.getElementById('myModal').close();"
+                                type="button" @click="cancelarModal"
                                 class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
                                 @mouseover="isCancelHovered = true" @mouseleave="isCancelHovered = false">
                                 Cancelar
@@ -103,7 +105,6 @@ const { GetAllRol } = UseRolStore();
 
 const cancelarModal = () => {
     resetForm();
-
     showModal.value = false;
 };
 onMounted(async () => {
