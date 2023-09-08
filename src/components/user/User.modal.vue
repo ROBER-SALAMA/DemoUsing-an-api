@@ -8,7 +8,7 @@
             </button>
         </section>
 
-        <dialog  id="myModal" class="bg-red-300 rounded-md w-[60%] h-[80%]">
+        <dialog  id="myModal" class="bg-red-300 rounded-md w-[70%] h-[85%]">
             <div class="flex flex-col w-full h-auto">
                 <!-- Header -->
                 <div class="flex w-full h-auto justify-center items-center">

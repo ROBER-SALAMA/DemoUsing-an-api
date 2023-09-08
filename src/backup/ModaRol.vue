@@ -1,31 +1,28 @@
 <template>
-    <div class="" >
+    <div class="z-40 absolute w-[81.5%] h-[calc(100% - 20%)]  
+         left-[18.5%] top-[10%] flex  
+         justify-center bg-red-400" >
       <button @click="showModal = true" class="flex items-center text-white font-semibold py-2 px-4 rounded-full shadow-md"
         :style="{
           backgroundColor: isAddHovered ? 'rgb(21, 131, 89)' : 'rgb(28, 161, 110)'
         }" @mouseover="isAddHovered = true" @mouseleave="isAddHovered = false">
         <oh-vue-icon name="io-add-circle" class="m-1"></oh-vue-icon>
-        <span>Actualizar</span>
+        <span>Agregar</span>
       </button>
-
-      <div v-show="showModal" class="fixed inset-0 flex items-center justify-center z-50 bg-slate-950 bg-opacity-80">
-        <div class="bg-slate-100 rounded-lg shadow-lg p-6">
-          <h3 class="text-lg font-medium mb-4 text-center">Actualizar</h3>
-
+      <div v-show="showModal" class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <h3 class="text-lg font-medium mb-4 text-center">Agregar Rol</h3>
           <form @submit="onSubmit">
-
             <div class="mb-4">
               <label for="rol" class="block text-gray-700 text-sm font-medium mb-1">Rol</label>
-              <Field v-model="form.rol" name="rol" as="input" type="text" class="w-full h-10 p-4 border rounded-xl
-              mt-1  block  bg-white border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              <Field name="rol" as="input" type="text" class="w-full h-10 p-4 border rounded-xl"
                 placeholder="Ingrese el rol" @input="formModified = true" />
               <ErrorMessage name="rol" v-slot="{ message }">
                 <p class="font-semibold text-red-600 text-sm">{{ message }}</p>
               </ErrorMessage>
             </div>
-
             <div class="flex justify-end">
-              <button  type="submit" class="px-4 py-2 text-white text-sm font-medium rounded-md" :style="{
+              <button type="submit" class="px-4 py-2 text-white text-sm font-medium rounded-md" :style="{
                 backgroundColor: isSaveHovered ? 'rgb(21, 131, 89)' : 'rgb(28, 161, 110)'
               }" @mouseover="isSaveHovered = true" @mouseleave="isSaveHovered = false">
                 Guardar
@@ -37,7 +34,6 @@
                 Cancelar
               </button>
             </div>
-            
           </form>
         </div>
       </div>
@@ -46,12 +42,10 @@
   
   <script lang="ts" setup>
   import { ref } from 'vue';
-  import { UseRolStore } from '../../store/rol.store';
+  import { UseRolStore } from '../../src/store/rol.store';
   import * as yup from "yup"
   import { Field, useForm, ErrorMessage } from 'vee-validate'
   
-  const { id, rol } = defineProps<{id:number; rol:string}>();
-
   const validationSchema = yup.object().shape({
     rol: yup.string().required("Rol es requerido")
   });
@@ -61,25 +55,25 @@
   });
   
   const showModal = ref(false);
-  const { UpdateRol } = UseRolStore();
-  const form = ref({
-    rol: rol,
+  const { CreateRol } = UseRolStore();
+  const formModified = ref(false);
+  const onSubmit = handleSubmit(async (values) => {
+    await CreateRol(values.rol);
+    resetForm();
+    formModified.value = false;
+    showModal.value = false;
   });
+  
   const cancelarModal = () => {
     resetForm();
     formModified.value = false;
     showModal.value = false;
-  };
-  const onSubmit = handleSubmit(async(values)=>{
-    UpdateRol(id, values.rol);
-    showModal.value = false;
-  })
+  }
   
   const isAddHovered = ref(false);
   const isSaveHovered = ref(false);
   const isCancelHovered = ref(false);
   
-  const formModified = ref(false);
   </script>
   
   <style lang="scss" scoped>
