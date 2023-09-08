@@ -100,7 +100,7 @@ const form = ref({
   age: user.age,
   gender: user.gender,
   email: user.email,
-  password: user.password,
+//   password: user.password,
 
 })
 
