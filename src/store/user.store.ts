@@ -45,7 +45,7 @@ export const UseUserStore = defineStore("user", {
             try {
                 const data = await delete_user(id);
                 if (data.ok) {
-                    await this.GetAllUser
+                    await this.GetAllUser()
                     toast.success("Usuario eliminado")
                 }
             } catch {
@@ -57,8 +57,8 @@ export const UseUserStore = defineStore("user", {
             try {
                 const data = await update_user(id, values);
                 if (data.ok) {
-                    await this.GetAllUser()
                     toast.info("Usuario actualizado")
+                    await this.GetAllUser()
                 }else{
                     toast.error("Error al actualizar usuario")
                 }
