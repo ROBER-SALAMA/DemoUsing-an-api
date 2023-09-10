@@ -41,8 +41,8 @@
                         
 
                         <Field v-model="form.gender" as="input" @input="formModified = true" type="text" name="gender"
-                            placeholder="Genero"
-                            class="mt-2 p-2 block w-full rounded-md bg-white border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
+                                placeholder="Genero"
+                                class="mt-2 p-2 block w-full rounded-md bg-white border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
                         
 
                         <Field v-model="form.email" as="input" @input="formModified = true" type="text" name="email"

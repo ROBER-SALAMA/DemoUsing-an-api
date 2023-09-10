@@ -7,8 +7,9 @@
                     x-show="sidenav">
                     <div class="space-y-6 md:space-y-10 mt-10">
                         <div id="profile" class="space-y-3">
-                            <img src="../../../public/vite.svg"
-                                alt="Avatar user" class="w-10 md:w-16 rounded-full mx-auto" />
+                            <!-- <oh-vue-icon name="ri-logout-box-line" class="inline-block w-8 h-8 mt-8 mr-2 "></oh-vue-icon> -->
+                             <img src="../../../public/vite.svg"
+                                alt="Avatar user" class="w-10 md:w-16 rounded-full mx-auto" /> 
                             <div>
                                 <h2 class="font-medium text-xs md:text-sm text-center text-teal-500">
                                     Demo
@@ -56,7 +57,7 @@
 </template>
 
 <script lang="ts" setup>
-
+// import OhVueIcon from "../../plugins/oh-vue-icon"
 </script>
 
 <style lang="scss" scoped></style>
