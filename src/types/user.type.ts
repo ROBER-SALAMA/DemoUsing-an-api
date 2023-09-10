@@ -36,3 +36,14 @@ export interface UpdateUser{
     rolId: number
     gender: string
 }
+
+//! pagenation
+export interface PaginationUser{
+    users: GetUser[];
+    total:number;
+    totalPages: number
+    nextPage: number;
+    prevPage: number;
+    currentPage: number;
+    empty: true;
+}

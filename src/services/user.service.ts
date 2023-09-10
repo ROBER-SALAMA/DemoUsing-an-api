@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { CreateUser, GetUser, UpdateUser } from '../types/user.type'
+import { CreateUser, GetUser, UpdateUser, PaginationUser } from '../types/user.type'
 import { API_URL } from '../utils/constans'
 import { GetToken } from '../utils/persists'
 
@@ -48,4 +48,17 @@ export const delete_user = async (id: number) => {
         },
     );
     return data
+};
+
+//! pagenation
+export const get_paginate_users = async (page: number, take: number) => {
+    const { data } = await axios.get<
+    PaginationUser
+    >(API_URL + "/user/pagination?page" + page + '&take=' + take, {
+        headers: {
+            Authorization: "Bearer " + GetToken(),
+        },
+    });
+    return data;
+
 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="col-span-12 z-30 absolute w-[81.5%] h-[calc(100% - 20%)] top-[20%] left-[18.5%] flex justify-center">
+    <div class="col-span-12 z-30 absolute w-[81.5%] h-[calc(100% - 20%)] top-[20%] left-[18.5%] flex justify-center bg-red-300">
         <div class="overflow-auto lg:overflow-visible">
             <table class="table text-gray-400 border-separate space-y-6 text-sm">
                 <thead class="bg-gray-800 text-gray-500">
@@ -36,22 +36,38 @@
                 </tbody>
             </table>
         </div>
+        <pagination :total="paginates.total"
+                    :totalPages="paginates.totalPages"
+                    :pages="pages"
+                    :next="paginates.nextPag"
+                    :prev="paginates.prevPag"
+                    :currentPage="paginates.currentPage"
+                    :totalPag="paginates.totalPages"
+                    @method="ChangePage"></pagination>
     </div>
 </template>
 
 <script lang="ts" setup>
 import update from '../../components/user/Update.user.vue'
+import Pagination from "../global/PaginateUser.vue"
 import { onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
 import Swal from 'sweetalert2';
-
 // pagination
 import { UseUserStore } from '../../store/user.store';
-const { GetAllUser } = UseUserStore();
 
-const { user } = storeToRefs(UseUserStore())
+const { GetAllUser } = UseUserStore();
+const { user } = storeToRefs(UseUserStore());
+
+const { paginates, pages } = storeToRefs(UseUserStore());
+const pagination = UseUserStore();
+
+const ChangePage = (page: string | number) => {
+    pagination.GetUsers(Number(page), 5);
+}
 
 onMounted(async () => {
+    pagination.GetUsers(1, 5);
     await GetAllUser()
 });
 
