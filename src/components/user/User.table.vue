@@ -62,6 +62,7 @@ const { user } = storeToRefs(UseUserStore());
 const { paginates, pages } = storeToRefs(UseUserStore());
 const pagination = UseUserStore();
 
+
 const ChangePage = (page: string | number) => {
     pagination.GetUsers(Number(page), 5);
 }
