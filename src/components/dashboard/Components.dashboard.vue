@@ -16,7 +16,7 @@
                     </div>
                     <div id="menu" class="flex flex-col space-y-2">
                         <RouterLink to="/rol"
-                            class="text-sm font-medium text-white py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
+                            class=" text-sm font-medium text-white py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
                             <svg class="w-6 h-6 fill-current inline-block" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -26,7 +26,7 @@
                             <span class="">Rol</span>
                         </RouterLink>
                         <RouterLink to="/user"
-                            class="text-sm font-medium text-white py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
+                            class=" text-sm font-medium text-white py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
                             <svg class="w-6 h-6 fill-current inline-block" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -34,9 +34,9 @@
                                 </path>
                             </svg>
                             <span class="">Usuario</span>
-                        </RouterLink> 
-                         <button @click="logout"
-                            class="text-sm font-medium text-white py-2 px-2 hover:bg-red-600 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
+                        </RouterLink>
+                        <button @click="MakeLogout"
+                            class="text-sm font-medium text-white py-2 px-2 hover:bg-red-600 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out text-left">
                             <svg class="w-6 h-6 fill-current inline-block" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -44,7 +44,8 @@
                                 </path>
                             </svg>
                             <span class="">Salir</span>
-                        </button> 
+                        </button>
+
                     </div>
                 </div>
             </div>
@@ -54,11 +55,10 @@
 
 <script lang="ts" setup>
 // import OhVueIcon from "../../plugins/oh-vue-icon"
-import { log_out } from '../../services/auth.service';
 
-const logout = () => {
-    log_out();
-} 
+import { UseAuthStore } from '../../store/auth.store';
+const { MakeLogout } = UseAuthStore();
+
 </script>
 
 <style lang="scss" scoped></style>
