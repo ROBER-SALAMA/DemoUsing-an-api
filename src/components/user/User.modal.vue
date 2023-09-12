@@ -51,7 +51,7 @@
                                 class="mt-2 p-2 block w-full rounded-md bg-white border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
                             <Field type="text" id="user" name="email" placeholder="Correo"
                                 class="mt-2 p-2 block w-full rounded-md bg-white border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
-                            <Field type="text" id="user" name="password" placeholder="Contraseña"
+                            <Field type="password" id="user" name="password" placeholder="Contraseña"
                                 class="mt-2 p-2 block w-full rounded-md bg-white border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
                         </div>
                         <!-- Botones -->
