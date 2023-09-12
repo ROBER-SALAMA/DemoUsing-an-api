@@ -28,20 +28,20 @@ export const UseUserStore = defineStore("user", {
         },
 
         //! pagenation
-        async GetUsers(page: number, take: number) {
+        async GetUsers(page:number, take:number){
             try {
-                const data = await get_paginate_users(page, take);
-                this.user = data.users;
-                this.paginates = {
+                const data = await get_paginate_users(page,take);
+                this.user = data.users
+                this.paginates ={
                     total: data.total,
                     totalPages: data.totalPages,
                     nextPag: data.nextPage,
                     prevPag: data.prevPage,
-                    currentPage: data.currentPage,
+                    currentPage: page,
                 };
-                this.pages = paginate(page, data.total)
-            } catch {
-                toast.error("Error de servidor")
+                this.pages = paginate(page,data.totalPages);
+            } catch  {
+               toast.error("error de servidor"); 
             }
         },
 

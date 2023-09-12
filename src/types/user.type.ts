@@ -45,5 +45,4 @@ export interface PaginationUser{
     nextPage: number;
     prevPage: number;
     currentPage: number;
-    empty: true;
 }
