@@ -2,18 +2,14 @@
 import { addIcons, OhVueIcon} from "oh-vue-icons";
 
 import{
-    IoAddCircle,
-    FaUserAlt,
-    RiLogoutBoxLine,
-    FaCriticalRole
+    BiArrowRightCircleFill,
+    BiArrowLeftCircleFill
 } from "oh-vue-icons/icons";
 
 
 
 addIcons(
-    IoAddCircle,
-    FaUserAlt,
-    RiLogoutBoxLine,
-    FaCriticalRole
+    BiArrowRightCircleFill,
+    BiArrowLeftCircleFill
 );
 export default OhVueIcon;
