@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[81.5%] h-[18%] left-[18.5%] z-20 absolute bg-orange-400">
+    <div class="w-[81.5%] h-[18%] left-[18.5%] z-20 absolute">
         <section class="flex p-10 justify-center items-start">
             <button onclick="document.getElementById('myModal').showModal()" id="btn"
                 class="py-3 px-10 bg-gray-800 text-white rounded text shadow-xl" @mouseover="isAddHovered = true"
